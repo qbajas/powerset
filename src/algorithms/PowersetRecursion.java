@@ -3,14 +3,15 @@ package algorithms;
 import main.Powerset;
 
 /**
- * Using recursive calls and bit mask
+ * Using recursive calls and a bit mask
+ * uses additional boolean array for a bit mask
  */
-public class PowersetRecursion implements Powerset {
+public class PowersetRecursion<T> implements Powerset {
 
-    int[] data;
+    T[] data;
     boolean[] used;
 
-    public PowersetRecursion(int[] data) {
+    public PowersetRecursion(T[] data) {
         this.data = data;
         used = new boolean[data.length];
     }
@@ -21,7 +22,7 @@ public class PowersetRecursion implements Powerset {
     }
 
     @Override
-    public void printPowersets() {
+    public void generateAndPrintPowersets() {
         generate(0);
     }
 

@@ -4,13 +4,14 @@ import main.Powerset;
 
 /**
  * Using bit mask and bit operations
+ * bit mask is an integer used as a binary number
  */
-public class PowersetNoRecursion implements Powerset {
+public class PowersetNoRecursion<T> implements Powerset {
 
-    int[] data;
-    boolean first = true;
+    T[] data;
+    boolean first;
 
-    public PowersetNoRecursion(int[] data) {
+    public PowersetNoRecursion(T[] data) {
         this.data = data;
     }
 
@@ -20,7 +21,7 @@ public class PowersetNoRecursion implements Powerset {
     }
 
     @Override
-    public void printPowersets() {
+    public void generateAndPrintPowersets() {
 //        1<<data.length is the same as (int)Math.pow(2,data.length)
         for (int bitMask = 0; bitMask < 1 << data.length; bitMask++) {
             first = true;
@@ -36,7 +37,7 @@ public class PowersetNoRecursion implements Powerset {
         }
     }
 
-    private void printElement(int element) {
+    private void printElement(T element) {
         if (first) {
             first = false;
         } else {
